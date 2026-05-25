@@ -7,16 +7,15 @@
     <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
-    <h1></h1>
-    <script src="js/site.js"></script>
     <h2>Card</h2>
-
-<div class="card">
-  <img src="john_img.png" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Male</p> 
-  </div>
-</div>
+    <div class="card">
+        <img id="userImage" src="john_img.png" alt="Avatar" style="width:100%">
+        <div class="container">
+            <h4 id="userName"><b>John Doe</b></h4> 
+            <p id="userGender">Male</p> 
+        </div>
+    </div>
+    <button onclick="toggleCard()">Toggle</button>
+    <script src="js/site.js"></script>
 </body>
 </html>

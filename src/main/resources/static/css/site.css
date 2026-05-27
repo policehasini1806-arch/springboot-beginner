@@ -3,32 +3,21 @@ h1{
 }
 body{
   margin: 0px;
-  padding: 0px;
+  padding:  0px;
+  font-size: larger;
 }
 .navbar{
-  border: 1px solid #000000;
+  /* border: 1px solid #000000; */
   background-color: #444;
-  padding: 10px;
+  padding: 20px;
 }
 .navbar a {
   color: #fff;
   text-decoration: none;
-  padding: 10px;
+  padding: 20px;
 }
 .navbar a:hover {
-  background-color: #666;
-  padding: 10px;
-}
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 40%;
-}
-
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-.container {
-  padding: 2px 16px;
+  background-color: yellow;
+  color:#000000;
+  /* padding: 10px; */
 }

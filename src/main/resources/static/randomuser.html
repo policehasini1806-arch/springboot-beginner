@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/card.css">
 </head>
 <body>
     <div class="navbar">
@@ -13,7 +14,15 @@
         <a href="/toggle.html">Toggle</a>
         <a href="/randomuser.html">Random User</a>
     </div>
-    <h1>Hello from HTML</h1>
+    <div class="card">
+        <img id="userImage" src="jane_img.png" alt="" >
+        <div class="card-content">
+            <h4 id="userName"><b>Jane Doe</b></h4> 
+            <p id="userGender">Female</p> 
+        </div>
+    <button onclick="getAndDisplayNextRandomUser()">Next Random User</button>
+    </div>
     <script src="js/site.js"></script>
+    <script src="js/randomuser.js"></script>
 </body>
 </html>

@@ -1,21 +1,23 @@
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+console.log(getRandomInt(1, 2)); // Returns 1 or 2
+
 function displayUser(user){
-    //console.log(user);
     document.getElementById("userName").textContent = user.name;
     document.getElementById("userImage").src = user.image;
     document.getElementById("userGender").textContent = user.gender;
+    document.getElementById("userId").textContent = user.id;
 }
 function getAndDisplayNextRandomUser(){
-    fetch("https://randomuser.me/api")
+    fetch("/api/users")
     .then(function(res){
         return res.json();
     })
     .then(function(data){
-        var userData=data.results[0];
-        var myUserObject={};
-        myUserObject.name=userData.name.title + " " + userData.name.first + " " + userData.name.last;
-        myUserObject.gender=userData.gender;
-        myUserObject.image=userData.picture.large;
-        displayUser(myUserObject);
+        var randomIndex = getRandomInt(0, data.length - 1);
+        var userData = data[randomIndex];   
+        displayUser(userData);
     })
     .catch(function(err){
         console.log("ERROR " +err);

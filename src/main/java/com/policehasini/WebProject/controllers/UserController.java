@@ -34,6 +34,14 @@ public class UserController {
         return ResponseEntity.ok(userService.getAllUsers());
     }
     
+    
+    @PutMapping("/{id}")
+    public ResponseEntity<User> update(
+        @PathVariable int id,
+        @RequestBody User u)
+    {
+        return ResponseEntity.ok(userService.updateUser(id, u));
+    }
     // @Autowired
     // private UserService userService;
 

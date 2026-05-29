@@ -21,17 +21,49 @@ public class UserService {
     public List<User> getAllUsers() {
         return allUsers;
     }
+    public Optional<User> getOneUser(int id){
+        for(int i=0;i<allUsers.size();i++){
+            User u=allUsers.get(i);
+            if(u.getId()==id){
+                return Optional.of(u);
+            }
+        }
+        return Optional.empty();
+    }
+    public User createUser(User u){
+        allUsers.add(u);
+        return u;
+    }
+    public User updateUser(int id,User user){
+        for(int i=0;i<allUsers.size();i++){
+            User u=allUsers.get(i);
+            if(u.getId()==id){
+                allUsers.set(i, user);
+                return u;
+            }
+        }
+        return null;
+    }
+    public void deleteUser(int id){
+        for(int i=0;i<allUsers.size();i++){
+            User u=allUsers.get(i);
+            if(u.getId()==id){
+                allUsers.remove(i);
+                break;
+            }
+        }
+    }
     //R
-    public User getSingleUser(int id) {
-        return getAllUsers().get(id);
-    }
-    //U
-    public void updateUser(String name, String gender,String image, int id) {
-        User updUser=new User(name, image, gender, id);
-        getAllUsers().set(id, updUser);
-    }
-    //D
-    public void deleteUser(int id) {
-        getAllUsers().remove(id);
-    }
+    // public User getSingleUser(int id) {
+    //     return getAllUsers().get(id);
+    // }
+    // //U
+    // public void updateUser(String name, String gender,String image, int id) {
+    //     User updUser=new User(name, image, gender, id);
+    //     getAllUsers().set(id, updUser);
+    // }
+    // //D
+    // public void deleteUser(int id) {
+    //     getAllUsers().remove(id);
+    // }
 }

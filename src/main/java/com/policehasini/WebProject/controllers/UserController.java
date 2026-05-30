@@ -2,6 +2,7 @@ package com.policehasini.WebProject.controllers;
 
 import java.util.*;
 
+import org.springframework.http.HttpStatus;
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 // import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,23 +25,37 @@ import com.policehasini.WebProject.services.UserService;
 @RequestMapping("/api/users")
 public class UserController {
     private UserService userService;
-    public UserController() {
+    public UserController(){
         userService = new UserService();
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> getAll() {
-
+    public ResponseEntity<List<User>> getAll(){
         return ResponseEntity.ok(userService.getAllUsers());
     }
-    
-    
+
     @PutMapping("/{id}")
     public ResponseEntity<User> update(
         @PathVariable int id,
         @RequestBody User u)
     {
         return ResponseEntity.ok(userService.updateUser(id, u));
+    }
+
+    @PostMapping
+    public ResponseEntity<User> create(
+        @RequestBody User u)
+    {
+        User cu = userService.createUser(u);
+        return ResponseEntity.status(HttpStatus.CREATED).body(cu);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<User> delete(
+        @PathVariable int id)
+    {
+        userService.deleteUser(id);
+        return ResponseEntity.noContent().build();
     }
     // @Autowired
     // private UserService userService;
